@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Input;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -19,3 +21,24 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+// ここにルートを記述していく。クロージャで記述できる。
+
+Route::get("/sample_route",function(){
+    //文字列を返すとその文字が出力される。
+    return "hello world";
+});
+
+//Inputクラスでパラメータを取得できる。
+Route::get("/sample_route2",function(){
+    $name = Input::get("name","John");
+    return "hello world, $name";
+});
+
+//モデルの呼び出しはオートローダで。
+Route::get("/sample",function(){
+    return \App\Services\Address::get("大");
+});
+
+
+Route::controller("blog",BlogController::class);

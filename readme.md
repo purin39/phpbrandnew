@@ -4,10 +4,6 @@
 
 途中からの参加の方は、 以下の環境を用意した上でご参加ください。
 
-3. XAMPP等のPHP実行環境
-
-https://www.apachefriends.org/download.html
-
 1. XAMPP等のPHP実行環境
 
 https://www.apachefriends.org/download.html

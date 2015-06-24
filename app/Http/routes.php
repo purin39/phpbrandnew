@@ -41,4 +41,10 @@ Route::get("/sample",function(){
 });
 
 
-Route::controller("blog",BlogController::class);
+## angular Sample
+// モデルを使ってAPIを実装してみる。
+Route::post("/api/sample",function(){
+    $address = Input::get("address");
+    return \App\Services\Address::get($address);
+});
+

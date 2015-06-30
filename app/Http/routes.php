@@ -48,3 +48,9 @@ Route::post("/api/sample",function(){
     return \App\Services\Address::get($address);
 });
 
+## database Sample
+// モデルを使ってAPIを実装してみる。
+Route::get("/product/list",ProductController::class."@index");
+Route::post("/product/insert",ProductController::class."@insert");
+Route::post("/product/delete",ProductController::class."@delete");
+

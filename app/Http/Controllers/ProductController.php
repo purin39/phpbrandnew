@@ -8,11 +8,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Eloquent\ProductEloquent;
 use App\Services\Products;
 //use App\Services\ProductsEloquentVersion as Products;
+use App\Services\ProductService;
 use Illuminate\Routing\Controller as MyController;
 use Carbon\Carbon;
 use \Input;
+use MyShop\Model\Product;
 
 class ProductController extends MyController{
 
@@ -26,7 +29,8 @@ class ProductController extends MyController{
 
     public function index()
     {
-        $products = Products::getList();
+        $products = ProductService::getList();
+
         $view = view("product.list",[
             "products" => $products
         ]);
@@ -39,10 +43,8 @@ class ProductController extends MyController{
             "name" => Input::get("name"),
             "price" => Input::get("price"),
             "amount" => Input::get("amount"),
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now(),
         ];
-        Products::insert($data);
+        ProductService::insert($data);
 
         return $this->redirectToTop();
     }

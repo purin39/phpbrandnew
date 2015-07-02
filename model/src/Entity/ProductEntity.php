@@ -14,7 +14,7 @@ class ProductEntity{
 
     public $amount;
 
-    function __construct($data = [])
+    public function __construct($data = [])
     {
         $this->name = $data["name"];
         $this->price = $data["price"];

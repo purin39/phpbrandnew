@@ -41,8 +41,7 @@
             <td><?=$product->name?></td>
             <td><?=$product->price?></td>
             <td><?=$product->amount?></td>
-            <td>
-                <form action="./delete" method="post">
+            <td><form action="./delete" method="post">
                     <input name="id" value="<?=$product->id?>" type="hidden"/>
                     <button type="submit" class="btn btn-default btn-xs">削除</button>
                 </form>

@@ -6,27 +6,26 @@ namespace MyShop\Model\Entity;
  * Date: 15/06/25
  * Time: 12:55
  */
-class ProductEntity{
+class ProductRepository{
 
-    public $name;
+    /**
+     * 商品の一覧を取得する。
+     *
+     * @return Entity
+     */
+    static public function getList(){
+        $result = DB::table("product")->get();
 
-    public $price;
+        $return = [];
+        foreach($result as $row){
+            $return[] = new ProductEntity([
+                "name" => $row->origin_name,
+                "price" => $row->price,
+                "amount" => $row->amount,
+            ]);
+        }
 
-    public $amount;
-
-    function __construct($data = [])
-    {
-        $this->name = $data["name"];
-        $this->price = $data["price"];
-        $this->amount = $data["amount"];
-    }
-
-    public function getTaxPrice(){
-        return $this->price * 1.05;
-    }
-
-    public function getTotalPrice(){
-        return $this->price * $this->amount;
+        return $result;
     }
 
 
